@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class = "wrapper">
+
+    <h4 class="mb-2 mt-4">Student Detail</h4>
+        <h5 class="mb-2">{{student.name}}</h5>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card card-primary collapsed-card">
+              <div class="card-header">
+                <h3 class="card-title">{{student.name}} Details</h3>
+
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <span>Email:<p>{{student.email}}<p></span><br>
+                <span>Mobile:<p>{{student.mobile}}<p></span><br>
+                <span>CitizenShip:<p>{{student.citizenship}}<p></span><br>
+                <span>Gender:<p>{{student.gender}}<p></span><br>
+                <span>Blood Group:<p>{{student.blood_group}}<p></span><br>
+                <span>Temporary Address:<p>{{student.temp_address}}<p></span><br>
+                <span>Permanent Address:<p>{{student.perm_address}}<p></span><br>
+                <span>Date of Birth:<p>{{student.dob}}<p></span><br>
+                <span>Is Alumi:<p>{{student.is_alumi}}<p></span><br>
+                <span>Picture:<p>{{student.picture.url}}<p></span><br>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+</div>
+
+{% endblock content %}

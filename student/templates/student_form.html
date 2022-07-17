@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% if messages %}
+  {% for message in messages %}
+      {{message}}
+  {% endfor %}
+{% endif %}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+        <!-- left column -->
+            <div class="col-md-6">
+                <!-- general form elements -->
+                <div class="card card-primary">
+                    <div class="card-header">
+                    <h3 class="card-title">Student Registration</h3>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form method = "POST">{% csrf_token %}
+                        {{form.as_p}}
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                        
+                        {% comment %} <div class="card-body">
+                            <div class="form-group">
+                                <label for="exampleInputName">Name</label>
+                                <input type="text" class="form-control" id="exampleInputName"  name = 'name' placeholder="Enter Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" name = 'email' placeholder="Enter email">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputMobile">Mobile Number</label>
+                                <input type="text" class="form-control" id="exampleInputMobile" name = 'mobile' placeholder="Enter Mobile">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputCitizenship">CitizenShip Id</label>
+                                <input type="text" class="form-control" id="exampleInputCitizenship" name = 'citizenship' placeholder="Enter Citizenship Id">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputGender">Gender</label>
+                                <input type="text" class="form-control" id="exampleInputGender" name = 'gender' placeholder="Enter Gender" value = "male">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputBloodGroup">Blood Group</label>
+                                <input type="text" class="form-control" id="exampleInputBloodGroup" name = 'blood_group'placeholder="Enter Blood Group">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputTempAddress">Temporary address</label>
+                                <input type="text" class="form-control" id="exampleInputTempAddress" name = 'temporary_address'placeholder="Temporary Address">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputTempAddress">Permanent address</label>
+                                <input type="text" class="form-control" id="exampleInputPermanentAddress" name = 'permanent_address'placeholder="Permanent Address">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputDob">Date of Birth</label>
+                                <input type="text" class="form-control" id="exampleInputDob" name = 'dob' placeholder="Date of Birth">
+                            </div> {% endcomment %}
+                            {% comment %} <div class="form-group"> {% endcomment %}
+                                {% comment %} <label for="exampleInputTempAddress">Is active</label>
+                                <input type="checkbox" class="form-control" id="exampleInputIsactive" name = 'is_active'>
+                            </div>
+                            <div class="form-group"> {% endcomment %}
+                                {% comment %} <label for="exampleInputIsalumi">Is Alumi</label>
+                                <input type="checkbox" class="form-control" id="exampleInputIsalumi" name = 'is_alumi'>
+                            </div>
+                            <div class="form-group"> {% endcomment %}
+                                {% comment %} <label for="exampleInputFile">Picture</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" id="exampleInputFile">
+                                        <label class="custom-file-label" for="exampleInputFile" name = "picture">Choose picture</label>
+                                    </div>
+                                </div> {% endcomment %}
+                            {% comment %} </div> {% endcomment %}
+                            {% comment %} <div class="card-footer">
+                                <input type="submit" class="btn btn-primary" value = "Submit">
+                            </div>
+                        </div> {% endcomment %}
+                    {% comment %} </form> {% endcomment %}
+                </div>
+
+                <!-- /.card-body -->
+
+                {% comment %} <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form> {% endcomment %}
+          </div>
+          <!-- /.card -->
+            </div>
+        </div>
+    </div>
+</section>
+
+
+{% endblock content %}
