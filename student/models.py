@@ -25,5 +25,9 @@ class Student(models.Model):
         return self.name
 
     @staticmethod
+    def get_all_student():
+        return Student.objects.all()
+
+    @staticmethod
     def get_student_by_id(id):
         return Student.objects.get(id = id)
