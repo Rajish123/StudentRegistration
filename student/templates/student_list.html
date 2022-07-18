@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Student List</h3>
+
+          <div class="card-tools">
+            {% comment %} <div class="input-group input-group-sm" style="width: 150px;"> {% endcomment %}
+                <a href = "{% url 'student:create_student' %}" class = "btn btn-primary btn-sm">Add Student</a>
+              {% comment %} <button type = "btn" class = "btn btn-default"><a href = "{}">Add Student</a><button> {% endcomment %}
+              {% comment %} </div> {% endcomment %}
+            </div>
+          </div>
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body table-responsive p-0">
+          <table class="table table-hover text-nowrap">
+            <thead>
+              <tr>
+                <th>SN</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>CitizenShip</th>
+                <th>Gender</th>
+                <th>Blood Group</th>
+                <th>Action</th>
+                {% comment %} <th>Temporary Address</th>
+                <th>Permanent Address</th>
+                <th>DOB</th>
+                <th>Is Active</th>
+                <th>Is Alumi</th>
+                <th>Picture</th>
+                <th><th> {% endcomment %}
+
+              </tr>
+            </thead>
+            {% for student in students %}
+            <tbody>
+              <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{student.name}}</td>
+                <td>{{student.email}}</td>
+                <td>{{student.mobile}}</td>
+                <td>{{student.citizenship}}</td>
+                <td>{{student.gender}}</td>
+                <td>{{student.blood_group}}</td>
+                <td>
+                    <a href = "{% url 'student:detail_student' student.id %}" class = "btn btn-info btn-sm"><span class = "fa fa-eye"></span></a>
+                    <a href = "{% url 'student:update_student' student.id %}" class = "btn btn-warning btn-sm"><span class = "fa fa-edit"></span></a>
+                    <a href = "{% url 'student:delete_student' student.id %}" class = "btn btn-danger btn-sm"><span class = "fa fa-trash"></span></a>
+              </tr>
+            </tbody>
+            {% endfor %}
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+  </div>
+
+
+{% endblock content %}
