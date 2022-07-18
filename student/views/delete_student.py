@@ -8,4 +8,4 @@ def deleteStudent(request,id):
     if request.method == "POST":
         student.delete()
         return redirect('student:student_list')
-    return render(request,'delete_student.html')
+    return render(request,'student_delete.html')
