@@ -1,0 +1,45 @@
+{% extends 'student/base.html' %}
+
+{% block title %}EduInfo Detail{% endblock %}
+
+
+{% block content %}
+
+<div>
+  {% for message in messages %}
+    {% if message %}
+      <h4 style = "text-align:center;">{{message}}</h4>
+    {% endif %}   
+  {% endfor %}
+
+</div>
+
+<div class = "wrapper">
+
+    <h4 class="mb-2 mt-4">{{educationinfo.student.name}}||Education Information</h4>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card card-primary collapsed-card">
+              <div class="card-header">
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <span>Student Name:<p>{{educationinfo.student.name}}<p></span><br>
+                <span>Board:<p>{{educationinfo.board}}<p></span><br>
+                <span>Symbol Number:<p>{{educationinfo.symbol_number}}<p></span><br>
+                <span>Institution:<p>{{educationinfo.institution_name}}<p></span><br>
+                <span>CGPA:<p>{{educationinfo.cgpa}}<p></span><br>
+                <span>Passed Year:<p>{{educationinfo.passed_year}}<p></span><br>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+</div>
+
+{% endblock content %}

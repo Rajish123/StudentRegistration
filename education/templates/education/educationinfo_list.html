@@ -1,0 +1,65 @@
+{% extends 'student/base.html' %}
+
+{% block title %}List EduInfo{% endblock %}
+
+
+{% block content %}
+
+<div>
+  {% for message in messages %}
+    {% if message %}
+      <h4 style = "text-align:center;">{{message}}</h4>
+    {% endif %}   
+  {% endfor %}
+
+</div>
+
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Education Information List</h3>
+        </div>
+      </div>
+        <!-- /.card-header -->
+        <div class="card-body table-responsive p-0">
+          <table class="table table-hover text-nowrap">
+            <thead>
+              <tr>
+                <th>SN</th>
+                <th>Student</th>
+                <th>Symbol</th>
+                <th>Board</th>
+                <th>Institution</th>
+                <th>CGPA</th>
+                <th>Passed Year</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            {% for education in education_info %}
+            <tbody>
+              <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{education.student.name}}</td>
+                <td>{{education.symbol_number}}</td>
+                <td>{{education.board}}</td>
+                <td>{{education.institution_name}}</td>
+                <td>{{education.cgpa}}</td>
+                <td>{{education.passed_year}}</td>
+                <td>
+                    <a href = "{% url 'education:educationinfo_detail' education.id %}" class = "btn btn-info btn-sm"><span class = "fa fa-eye"></span></a>
+                    <a href = "{% url 'education:educationinfo_update' education.id %}" class = "btn btn-warning btn-sm"><span class = "fa fa-edit"></span></a>
+                    <a href = "{% url 'education:educationinfo_delete' education.id %}" class = "btn btn-danger btn-sm"><span class = "fa fa-trash"></span></a>
+              </tr>
+            </tbody>
+            {% endfor %}
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+  </div>
+
+
+{% endblock content %}
