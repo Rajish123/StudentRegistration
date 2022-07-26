@@ -1,10 +1,22 @@
-{% extends 'base.html' %}
+{% extends 'student/base.html' %}
+
+{% block title %}Student Detail{% endblock %}
+
 
 {% block content %}
 
+<div>
+  {% for message in messages %}
+    {% if message %}
+      <h4 style = "text-align:center;">{{message}}</h4>
+    {% endif %}   
+  {% endfor %}
+
+</div>
+
 <div class = "wrapper">
 
-    <h4 class="mb-2 mt-4">Student Detail</h4>
+    <h4 class="mb-2 mt-4">{{student.name}}||Detail</h4>
         <h5 class="mb-2">{{student.name}}</h5>
         <div class="row">
           <div class="col-md-3">

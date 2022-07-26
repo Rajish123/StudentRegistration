@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Student Registration</title>
+  <title>Student|{% block title %}{% endblock %}</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -60,9 +60,27 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../../index3.html" class="nav-link">
+                <a href="" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v3</p>
+                  <p>Semester Managemet</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Faculty Managemet</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'education:educationinfo_list' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>EducationInfo&nbspManagement</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'family:familyinfo_list' %}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>FamilyInfo&nbspManagement</p>
                 </a>
               </li>
             </ul>
