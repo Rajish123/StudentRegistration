@@ -22,3 +22,14 @@ class StudentForm(forms.ModelForm):
             'picture': forms.FileInput(attrs = {'class':'form-control', 'id':'exampleInputFile'}),
 
         }
+
+
+        # widgets = {
+        #     # 'student': forms.HiddenInput(attrs={'class':'form-control','id':'exampleInputStudent', 'value' : {{student}}}),
+        #     'symbol': forms.TextInput(attrs={'class':'form-control','id':'exampleInputSymbol'}),
+        #     'board': forms.TextInput(attrs={'class':'form-control','id':'exampleInputBoard'}),
+        #     'institution_name': forms.TextInput(attrs={'class':'form-control','id':'exampleInputInstitution'}),
+        #     'cgpa': forms.TextInput(attrs={'class':'form-control','id':'exampleInputCgpa'}),
+        #     'passed_year': forms.TextInput(attrs={'class':'form-control','id':'exampleInputPassedYear'})
+        # }
+    
