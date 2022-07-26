@@ -1,0 +1,47 @@
+{% extends 'student/base.html' %}
+
+{% block title %}FamilyInfo Detail{% endblock %}
+
+
+{% block content %}
+
+<div>
+  {% for message in messages %}
+    {% if message %}
+      <h4 style = "text-align:center;">{{message}}</h4>
+    {% endif %}   
+  {% endfor %}
+
+</div>
+
+<div class = "wrapper">
+
+    <h4 class="mb-2 mt-4">{{familyinfo.student.name}}||Family Detail</h4>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card card-primary collapsed-card">
+              <div class="card-header">
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <span>Student Name:<p>{{familyinfo.student.name}}<p></span><br>
+                <span>Father's Name:<p>{{familyinfo.fathers_name}}<p></span><br>
+                <span>Mother's Name:<p>{{familyinfo.mothers_name}}<p></span><br>
+                <span>Father's Number:<p>{{familyinfo.fathers_number}}<p></span><br>
+                <span>Mother's Number:<p>{{familyinfo.mothers_number}}<p></span><br>
+                <span>Guardian's Name:<p>{{familyinfo.guardian_name}}<p></span><br>
+                <span>Guardian's Number:<p>{{familyinfo.guardian_relation}}<p></span><br>
+            
+                </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+</div>
+
+{% endblock content %}

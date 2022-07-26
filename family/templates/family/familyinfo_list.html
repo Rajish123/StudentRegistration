@@ -1,0 +1,61 @@
+{% extends 'student/base.html' %}
+
+{% block title %}List EduInfo{% endblock %}
+
+
+{% block content %}
+
+<div>
+  {% for message in messages %}
+    {% if message %}
+      <h4 style = "text-align:center;">{{message}}</h4>
+    {% endif %}   
+  {% endfor %}
+
+</div>
+
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Education Information List</h3>
+        </div>
+      </div>
+        <!-- /.card-header -->
+        <div class="card-body table-responsive p-0">
+          <table class="table table-hover text-nowrap">
+            <thead>
+              <tr>
+                <th>SN</th>
+                <th>Student</th>
+                <th>Father's Name</th>
+                <th>Mother's Name</th>
+                <th>Guardian's Name</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            {% for family in family_info %}
+            <tbody>
+              <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{family.student.name}}</td>
+                <td>{{family.fathers_name}}</td>
+                <td>{{family.mothers_name}}</td>
+                <td>{{family.guardian_name}}</td>
+                <td>
+                    <a href = "{% url 'family:familyinfo_detail' family.id %}" class = "btn btn-info btn-sm"><span class = "fa fa-eye"></span></a>
+                    <a href = "{% url 'family:familyinfo_update' family.id %}" class = "btn btn-warning btn-sm"><span class = "fa fa-edit"></span></a>
+                    <a href = "" class = "btn btn-danger btn-sm"><span class = "fa fa-trash"></span></a>
+              </tr>
+            </tbody>
+            {% endfor %}
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+  </div>
+
+
+{% endblock content %}
