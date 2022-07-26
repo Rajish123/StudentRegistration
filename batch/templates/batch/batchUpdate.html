@@ -1,0 +1,35 @@
+{% extends 'student/base.html' %}
+
+{% block content %}
+
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+        <!-- left column -->
+            <div class="col-md-6">
+                <!-- general form elements -->
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Batch Registration</h3>
+                    </div>
+                    <div>
+                        <br><br><br>
+                    </div>
+                    <!-- /.card-header -->
+                    <!-- form start -->
+                    <form action = "" method = "POST">{% csrf_token %}
+                        {{form.as_p}}
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<section>
+                
+ 
+
+
+
+{% endblock content %}
