@@ -1,9 +1,13 @@
+from django.http import Http404
 from django.shortcuts import render
 from student.models import Student
-from student.forms import StudentForm
+from django.http import Http404
 
 def studentDetail(request,id):
     context = {}
     student = Student.get_student_by_id(id)
-    context['student'] = student
-    return render(request, 'student_detail.html',context)
+    if student:
+        context['student'] = student
+        return render(request, 'student/student_detail.html',context)
+    else:
+        raise Http404()
