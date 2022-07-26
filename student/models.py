@@ -1,5 +1,7 @@
 from tabnanny import verbose
+from tarfile import REGTYPE
 from django.db import models
+from django.core.exceptions import ObjectDoesNotExist
 
 # Create your models here.
 class Student(models.Model):
@@ -30,4 +32,10 @@ class Student(models.Model):
 
     @staticmethod
     def get_student_by_id(id):
-        return Student.objects.get(id = id)
+        try:
+            return Student.objects.get(id = id)
+        except ObjectDoesNotExist:
+            return None
+
+
+
