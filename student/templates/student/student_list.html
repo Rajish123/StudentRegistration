@@ -40,8 +40,7 @@
                 <th>Action</th>
                 <th>-------</th>
                 <th>-------</th>
-
-
+                <th>-------</th>
               </tr>
             </thead>
             {% for student in students %}
@@ -61,6 +60,9 @@
                 </td>
                 <td>
                   <a href = "{% url 'family:familyinfo_create' student.id %}" class = "btn btn-block btn-outline-primary">Add FamilyInfo</a>
+                </td>
+                <td>
+                  <a href = "{% url 'college_info:collegeinfo_create' student.id %}" class = "btn btn-block btn-outline-primary">Add CollegeInfo</a>
                 </td>
                 </tr>
             </tbody>
