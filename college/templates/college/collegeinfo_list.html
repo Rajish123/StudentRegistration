@@ -1,0 +1,65 @@
+{% extends 'student/base.html' %}
+
+{% block title %}List CollegeInfo{% endblock %}
+
+
+{% block content %}
+
+<div>
+  {% for message in messages %}
+    {% if message %}
+      <h4 style = "text-align:center;">{{message}}</h4>
+    {% endif %}   
+  {% endfor %}
+
+</div>
+
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">College Information List</h3>
+        </div>
+      </div>
+        <!-- /.card-header -->
+        <div class="card-body table-responsive p-0">
+          <table class="table table-hover text-nowrap">
+            <thead>
+              <tr>
+                <th>SN</th>
+                <th>Student</th>
+                <th>Batch</th>
+                <th>Semester</th>
+                <th>Faculty</th>
+                <th>Tu Registration</th>
+                <th>Symbol</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            {% for collegeinfo in college_info %}
+            <tbody>
+              <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{collegeinfo.student}}</td>
+                <td>{{collegeinfo.batch.batch_name}}</td>
+                <td>{{collegeinfo.semester.semester_name}}</td>
+                <td>{{collegeinfo.faculty.faculty_name}}</td>
+                <td>{{collegeinfo.tu_registration_number}}</td>
+                <td>{{collegeinfo.symbol_number}}</td>
+                <td>
+                    <a href = "{% url 'college_info:collegeinfo_detail' collegeinfo.id %}" class = "btn btn-info btn-sm"><span class = "fa fa-eye"></span></a>
+                    <a href = "{% url 'college_info:collegeinfo_update' collegeinfo.id %}" class = "btn btn-warning btn-sm"><span class = "fa fa-edit"></span></a>
+                    <a href = "{% url 'college_info:collegeinfo_delete' collegeinfo.id %}" class = "btn btn-danger btn-sm"><span class = "fa fa-trash"></span></a>
+              </tr>
+            </tbody>
+            {% endfor %}
+          </table>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+  </div>
+
+
+{% endblock content %}

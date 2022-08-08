@@ -1,0 +1,46 @@
+{% extends 'student/base.html' %}
+
+{% block title %}CollegeInfo Detail{% endblock %}
+
+
+{% block content %}
+
+<div>
+  {% for message in messages %}
+    {% if message %}
+      <h4 style = "text-align:center;">{{message}}</h4>
+    {% endif %}   
+  {% endfor %}
+
+</div>
+
+<div class = "wrapper">
+
+    <h4 class="mb-2 mt-4">{{collegeinfo.student.name}}||College Information</h4>
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card card-primary collapsed-card">
+              <div class="card-header">
+                <div class="card-tools">
+                  <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-plus"></i>
+                  </button>
+                </div>
+                <!-- /.card-tools -->
+              </div>
+              <!-- /.card-header -->
+              <div class="card-body">
+                <span>Student:<p>{{collegeinfo.student.name}}<p></span><br>
+                <span>Board:<p>{{collegeinfo.board}}<p></span><br>
+                <span>Semester:<p>{{collegeinfo.semester}}<p></span><br>
+
+                <span>Faculty:<p>{{collegeinfo.faculty}}<p></span><br>
+                <span>Registration Number:<p>{{collegeinfo.tu_registration_number}}<p></span><br>
+                <span>Symbol:<p>{{collegeinfo.symbol_number}}<p></span><br>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+</div>
+
+{% endblock content %}

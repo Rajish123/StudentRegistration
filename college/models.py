@@ -1,6 +1,8 @@
 from django.db import models
 from student.models import Student
 from batch.models import Batch, Semester, Faculty
+from django.core.exceptions import ObjectDoesNotExist
+
 
 # Create your models here.
 
@@ -16,3 +18,14 @@ class CollegeInformation(models.Model):
         ordering = ('symbol_number',)
         verbose_name = "CollegeInformation"
         verbose_name_plural = "CollegeInformations"
+
+    @staticmethod
+    def get_all_collegeinfo():
+        return CollegeInformation.objects.all()
+
+    @staticmethod
+    def get_collegeinfo_by_id(id):
+        try:
+            return CollegeInformation.objects.get(id = id)
+        except ObjectDoesNotExist:
+            return None
