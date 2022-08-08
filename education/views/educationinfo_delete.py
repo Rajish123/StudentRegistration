@@ -1,6 +1,5 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect
-from student.models import Student
 from education.models import EducationInformation
 
 from django.shortcuts import redirect, render

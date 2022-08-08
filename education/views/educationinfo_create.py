@@ -24,5 +24,5 @@ def createEducationInfo(request,id):
                 return HttpResponse("<h1>Form not valid</h1>")
         return render(request,'education/educationinfo_create.html',{'form':form,'student':student})
     else:
-        return Http404()
+        raise Http404()
 

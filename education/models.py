@@ -1,6 +1,8 @@
 from django.db import models
 from student.models import Student
 from django.core.exceptions import ObjectDoesNotExist
+from django.http import Http404
+
 
 
 # Create your models here.
