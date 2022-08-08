@@ -26,8 +26,7 @@ urlpatterns = [
     path('batch/',include('batch.urls')),
     path('',include('education.urls')),
     path('',include('family.urls')),
-
-
+    path('',include('college.urls')),
 ]
 
 

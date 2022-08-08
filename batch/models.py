@@ -43,7 +43,7 @@ class Semester(models.Model):
     @staticmethod
     def get_semester_by_id(id):
         try:
-            return Semester.objects.get(id)
+            return Semester.objects.get(id = id)
         except ObjectDoesNotExist:
             return None
 
@@ -64,6 +64,9 @@ class Faculty(models.Model):
     @staticmethod
     def get_faculty_by_id(id):
         try:
-            return Faculty.objects.all()
+            return Faculty.objects.get(id = id)
         except ObjectDoesNotExist:
             return None
+
+    def __str__(self):
+        return self.faculty_name   
