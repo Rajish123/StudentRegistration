@@ -31,8 +31,6 @@
                 <th>Batch</th>
                 <th>Semester</th>
                 <th>Faculty</th>
-                <th>Tu Registration</th>
-                <th>Symbol</th>
                 <th>Action</th>
               </tr>
             </thead>
@@ -44,8 +42,6 @@
                 <td>{{collegeinfo.batch.batch_name}}</td>
                 <td>{{collegeinfo.semester.semester_name}}</td>
                 <td>{{collegeinfo.faculty.faculty_name}}</td>
-                <td>{{collegeinfo.tu_registration_number}}</td>
-                <td>{{collegeinfo.symbol_number}}</td>
                 <td>
                     <a href = "{% url 'college_info:collegeinfo_detail' collegeinfo.id %}" class = "btn btn-info btn-sm"><span class = "fa fa-eye"></span></a>
                     <a href = "{% url 'college_info:collegeinfo_update' collegeinfo.id %}" class = "btn btn-warning btn-sm"><span class = "fa fa-edit"></span></a>
