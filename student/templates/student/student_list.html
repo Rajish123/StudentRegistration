@@ -4,6 +4,9 @@
 
 
 {% block content %}
+{% load check%}
+{% load custom_filter %}
+
 
 <div>
   {% for message in messages %}
@@ -55,15 +58,35 @@
                     <a href = "{% url 'student:update_student' student.id %}" class = "btn btn-warning btn-sm"><span class = "fa fa-edit"></span></a>
                     <a href = "{% url 'student:delete_student' student.id %}" class = "btn btn-danger btn-sm"><span class = "fa fa-trash"></span></a>
                 </td>
+                {% if student|check_eduinfo %}
                 <td>
-                  <a href = "{% url 'education:educationinfo_create' student.id %}" class = "btn btn-block btn-outline-primary">Add EduInfo</a>
+                  <a href = "educationinfo_detail/{{student|view_edu}}" class = "btn btn-block btn-light"><span class = "fa fa-eye">&nbsp</span>EduInfo</a>
                 </td>
+                {% else %}
+                  <td>
+                    <a href = "{% url 'education:educationinfo_create' student.id %}" class = "btn btn-block btn-dark"><span class = "fa fa-plus">&nbsp</span>EduInfo</a>
+                  </td>
+                {% endif %}
+                {% if student|check_familyinfo %}
+                  <td>
+                    <a href = "familyinfo_detail/{{student|view_familyinfo}}" class = "btn btn-block btn-light"><span class = "fa fa-eye">&nbsp</span>FamilyInfo</a>
+                  </td>
+                {% else %}
+                  <td>
+                    <a href = "{% url 'college_info:collegeinfo_create' student.id %}" class = "btn btn-block btn-dark"><span class = "fa fa-plus">&nbsp</span>FamilyInfo</a>
+                  </td>
+                {% endif %}
+                {% if student|check_collegeinfo %}
                 <td>
-                  <a href = "{% url 'family:familyinfo_create' student.id %}" class = "btn btn-block btn-outline-primary">Add FamilyInfo</a>
+                  <a href = "collegeinfo_detail/{{student|view_collegeinfo}}" class = "btn btn-block btn-light"><span class = "fa fa-eye">&nbsp</span>CollegeInfo</a>
                 </td>
-                <td>
-                  <a href = "{% url 'college_info:collegeinfo_create' student.id %}" class = "btn btn-block btn-outline-primary">Add CollegeInfo</a>
-                </td>
+                {% else %}
+                  <td>
+                    <a href = "{% url 'education:educationinfo_create' student.id %}" class = "btn btn-block btn-dark"><span class = "fa fa-plus">&nbsp</span>CollegeInfo</a>
+                  </td>
+                {% endif %}
+                
+              
                 </tr>
             </tbody>
             {% endfor %}
